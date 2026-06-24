@@ -1,0 +1,133 @@
+Question 3 - File System and Link Analysis
+
+Objective
+
+To understand the behavior of hard links and symbolic links in Linux/macOS file systems and analyze what happens when the original file is deleted.
+
+---
+
+File Creation
+
+Command:
+echo "Linux Lab Assignment" > original.txt
+
+Observation:
+A file named original.txt was created and the text "Linux Lab Assignment" was stored inside it.
+
+---
+
+Hard Link Creation
+
+Command:
+ln original.txt hardlink.txt
+
+Observation:
+A hard link named hardlink.txt was created. Both files point to the same underlying file data.
+
+---
+
+Symbolic Link Creation
+
+Command:
+ln -s original.txt symlink.txt
+
+Observation:
+A symbolic link named symlink.txt was created. It stores the path to original.txt rather than sharing the same inode.
+
+---
+
+Inode Information
+
+Command:
+ls -li
+
+Output:
+
+original.txt inode: 91137113
+
+hardlink.txt inode: 91137113
+
+symlink.txt inode: 91137761
+
+Observation:
+The original file and hard link have the same inode number (91137113), proving that they refer to the same file data. The symbolic link has a different inode number (91137761), showing that it is a separate file containing a reference to the target file.
+
+---
+
+Metadata Collection
+
+Command:
+stat original.txt
+stat hardlink.txt
+stat symlink.txt
+
+Observation:
+The metadata confirms that original.txt and hardlink.txt share the same inode number and link count. The symbolic link has its own inode and separate metadata information.
+
+---
+
+Deletion of Original File
+
+Command:
+rm original.txt
+
+Observation:
+The original file was successfully removed from the directory.
+
+---
+
+Behavior of Hard Link After Deletion
+
+Command:
+cat hardlink.txt
+
+Output:
+Linux Lab Assignment
+
+Observation:
+The hard link continued to work normally because it still references the original inode containing the file data.
+
+---
+
+Behavior of Symbolic Link After Deletion
+
+Command:
+cat symlink.txt
+
+Output:
+cat: symlink.txt: No such file or directory
+
+Observation:
+The symbolic link became broken because its target file (original.txt) no longer exists.
+
+---
+
+Comparison Between Hard Link and Symbolic Link
+
+Hard Link:
+
+* Shares the same inode as the original file.
+* Points directly to file data.
+* Continues working after the original file is deleted.
+
+Symbolic Link:
+
+* Has its own inode number.
+* Stores a path to the target file.
+* Becomes invalid if the original file is deleted.
+
+---
+
+Conclusion
+
+This experiment demonstrated the key difference between hard links and symbolic links. Hard links share the same inode and remain functional even after the original file is deleted. Symbolic links only store a reference path to the target file and become unusable when the target file is removed. Understanding these differences is important for file management and system administration tasks.
+
+---
+
+Summary of Findings
+
+1. original.txt and hardlink.txt shared inode 91137113.
+2. symlink.txt had a different inode 91137761.
+3. Hard links remain accessible after deleting the original file.
+4. Symbolic links break when the target file is deleted.
+5. Metadata collected using stat confirmed the inode relationships and link behavior.
