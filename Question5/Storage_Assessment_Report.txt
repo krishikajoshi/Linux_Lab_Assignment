@@ -1,0 +1,79 @@
+STORAGE HEALTH ASSESSMENT REPORT
+
+Objective:
+To assess the storage resources of the system and determine its readiness for deployment of a new application server.
+
+1. Available Storage Devices
+
+The system contains an internal SSD storage device:
+
+* Device: /dev/disk0
+* Model: APPLE SSD AP0256Z
+* Capacity: 251.0 GB
+* Storage Type: Solid State Drive (SSD)
+* SMART Status: Verified
+
+Additional storage structures detected:
+
+* APFS Container: disk3 (245.1 GB)
+* Recovery Container: disk2 (5.4 GB)
+* Disk Images: disk4, disk5, disk6 (MuMuPlayer images)
+
+2. Mounted File Systems
+
+The following major file systems are mounted:
+
+* / (Root File System)
+* /System/Volumes/Data
+* /System/Volumes/Preboot
+* /System/Volumes/Recovery
+* /System/Volumes/VM
+* /Volumes/MuMuPlayer
+* /Volumes/MuMuPlayer 1
+* /Volumes/MuMuPlayer 2
+
+All mounted file systems were accessible and functioning correctly during the assessment.
+
+3. Disk Usage Statistics
+
+Results from the df -h command:
+
+* Root Volume (/): 228 GiB total, 17 GiB used, 40 GiB available
+* Data Volume: 228 GiB total, 149 GiB used, 40 GiB available
+* VM Volume: 3.0 GiB used
+* Recovery Volume: 2.6 GiB
+
+The Data volume currently shows the highest storage utilization at approximately 79%.
+
+4. Inode Utilization
+
+Results from the df -i command indicate:
+
+* Root Volume Inodes Used: 453,127
+* Data Volume Inodes Used: 1,541,436
+* Available Inodes: More than 419 million
+
+Inode utilization is extremely low relative to the available inode count, indicating no risk of inode exhaustion.
+
+5. Storage Health Observations
+
+* SMART Status of the SSD is Verified.
+* Internal SSD is functioning normally.
+* APFS containers and volumes are mounted successfully.
+* No file system errors were observed.
+* Available storage remains sufficient for application deployment.
+* Inode availability is very high.
+* Disk images from MuMuPlayer are mounted and consuming additional storage.
+
+6. Recommendations for Improving Storage Utilization
+
+* Remove unused disk images when not required.
+* Monitor Data volume usage regularly since it is approximately 79% utilized.
+* Delete temporary and unnecessary files periodically.
+* Perform regular system backups.
+* Maintain at least 15–20% free disk space for optimal performance.
+* Review storage utilization before installing large applications.
+
+Conclusion
+
+The storage environment is healthy and suitable for deploying a new application server. The SSD reports a verified SMART status, file systems are mounted correctly, and inode availability is abundant. Storage utilization should continue to be monitored, particularly on the Data volume, to ensure long-term performance and reliability.
