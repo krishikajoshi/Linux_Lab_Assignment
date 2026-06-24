@@ -1,133 +1,91 @@
-# Question 1 - Linux Environment Verification
+Question 1 - Linux Environment Verification
 
-## Objective
+Objective
 
 Verify the Linux/macOS environment and collect user account, shell, directory, file system, and network information.
 
 ---
 
-## 1. Username Verification
+1. Username Verification
 
-### Command
-
-```bash
+Command:
 whoami
-```
 
-### Output
-
-```text
+Output:
 krishikajoshi
-```
 
-### Observation
-
-This command displays the username of the currently logged-in account. The active user is `krishikajoshi`.
+Observation:
+This command displays the username of the currently logged-in account. The active user is krishikajoshi.
 
 ---
 
-## 2. User Groups Verification
+2. User Groups Verification
 
-### Command
-
-```bash
+Command:
 groups
-```
 
-### Output
-
-```text
+Output:
 staff everyone localaccounts _appserverusr admin _appserveradm _lpadmin _appstore _lpoperator _developer _analyticsusers com.apple.access_ftp com.apple.access_screensharing com.apple.access_ssh com.apple.access_remote_ae com.apple.sharepoint.group.1
-```
 
-### Observation
-
+Observation:
 This command displays all groups associated with the current user account. Group memberships determine the permissions and access rights available to the user.
 
 ---
 
-## 3. Current Shell Verification
+3. Current Shell Verification
 
-### Command
-
-```bash
+Command:
 echo $SHELL
-```
 
-### Output
+Output:
+/bin/zsh
 
-```text
-/Users/bin/zsh
-```
-
-### Observation
-
-The command displays the default shell being used by the current user. The system is using the Z Shell (`zsh`).
+Observation:
+This command displays the default shell being used by the current user. The system is using the Z Shell (zsh).
 
 ---
 
-## 4. Current Working Directory
+4. Current Working Directory
 
-### Command
-
-```bash
+Command:
 pwd
-```
 
-### Output
-
-```text
+Output:
 /Users/krishikajoshi/Question1
-```
 
-### Observation
-
-The `pwd` command displays the absolute path of the current working directory. It confirms the location where the assignment files are stored.
+Observation:
+The pwd command displays the absolute path of the current working directory. It confirms the location where the assignment files are stored.
 
 ---
 
-## 5. Workspace File and Directory Listing
+5. Workspace File and Directory Listing
 
-### Command
-
-```bash
+Command:
 ls -la
-```
 
-### Output
-
-```text
+Output:
 total 0
 drwxr-xr-x   2 krishikajoshi  staff    64 24 Jun 15:31 .
 drwxr-x---+ 38 krishikajoshi  staff  1216 24 Jun 15:36 ..
-```
 
-### Observation
-
-The `ls -la` command lists all files and directories, including hidden entries, along with permissions, ownership, and other metadata.
+Observation:
+The ls -la command lists all files and directories, including hidden entries, along with permissions, ownership, and other metadata.
 
 ---
 
-## 6. Network Connectivity Verification
+6. Network Connectivity Verification
 
-### Command
-
-```bash
+Command:
 ping -c 4 google.com
-```
 
-### Output
-
-```text
+Output:
 4 packets transmitted, 4 packets received, 0.0% packet loss
-```
 
-### Observation
-
+Observation:
 The ping command verifies network connectivity by sending packets to Google. Successful replies and zero packet loss confirm that the system has internet access.
 
 ---
 
-## Conclusion
+Conclusion
 
 The system environment was successfully verified. User information, shell configuration, working directory, file listing, and network connectivity were checked and found to be functioning correctly.
