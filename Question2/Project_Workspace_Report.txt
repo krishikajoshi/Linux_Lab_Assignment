@@ -1,0 +1,78 @@
+Question 2 - Secure Project Workspace Setup
+
+Directory Structure Created
+
+Command:
+mkdir ProjectWorkspace
+
+Output:
+ProjectWorkspace
+
+Observation:
+A dedicated workspace named ProjectWorkspace was created for storing project files and documentation. This provides a separate and organized location for project resources.
+
+---
+
+File Permissions Before Modification
+
+Command:
+ls -ld ProjectWorkspace
+
+Output:
+drwxr-xr-x  2 krishikajoshi  staff  64 24 Jun 15:55 ProjectWorkspace
+
+Observation:
+Initially, the directory had permission 755. The owner had read, write, and execute permissions, while group members and others had read and execute permissions.
+
+---
+
+Umask Value Used
+
+Command:
+umask
+
+Output:
+022
+
+Observation:
+The umask value 022 removes write permissions from group members and others when new files and directories are created. This helps maintain basic security by preventing unauthorized modifications.
+
+---
+
+File Permissions After Modification
+
+Command:
+chmod 750 ProjectWorkspace
+ls -ld ProjectWorkspace
+
+Output:
+drwxr-x---  2 krishikajoshi  staff  64 24 Jun 15:55 ProjectWorkspace
+
+Observation:
+After changing the permissions to 750, the owner has full access, the group has read and execute permissions, and others have no access to the directory.
+
+---
+
+Ownership Details
+
+Command:
+stat ProjectWorkspace
+
+Output:
+Owner: krishikajoshi
+Group: staff
+
+Observation:
+The ProjectWorkspace directory is owned by krishikajoshi and belongs to the staff group. Ownership determines who can manage and modify the directory contents.
+
+---
+
+How Permissions Protect Project Data
+
+The permission value 750 provides controlled access to the project workspace. The owner can fully manage files and directories, group members can access and view the contents, and all other users are denied access. This helps prevent unauthorized access and protects important project data.
+
+---
+
+Conclusion
+
+A secure project workspace was successfully created. Directory permissions were configured, ownership was verified, and the umask value was examined. These settings help ensure that project resources remain organized and protected from unauthorized access.
